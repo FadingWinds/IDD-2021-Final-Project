@@ -63,7 +63,7 @@ pwd = "3428"
 count_pwd = 15
 
 emergency_pwd = "9716"
-emergency_count_pwd = 28
+emergency_count_pwd = 88
 
 emergency_color = (50, 205, 50)
 

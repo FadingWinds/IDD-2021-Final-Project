@@ -79,8 +79,8 @@ draw = ImageDraw.Draw(image)
 pwd = "3428"
 count_pwd = 15
 
-emergency_pwd = "9316"
-emergency_count_pwd = 28
+emergency_pwd = "9716"
+emergency_count_pwd = 88
 
 emergency_color = (50, 205, 50)
 
@@ -147,9 +147,9 @@ def animation():
         draw.rectangle((0, 0, width, height), outline=0, fill=(0, 0, 0, i*25))
         disp.image(image, rotation)
     for i in range(21):
-        blend_image = Image.blend(logo_2, logo_4, i / 20)
-        image.paste(blend_image, (30, 30, 100, 100))
-        draw.text((120, 30), chars[:min(i, len(chars))], font=font, fill="#B22222")
+        blend_image = Image.blend(logo_2, logo_1, i / 20)
+        image.paste(blend_image, (10, 30, 80, 100))
+        draw.text((85, 60), chars[:min(i, len(chars))], font=font, fill="#B22222")
         disp.image(image, rotation)
         time.sleep(0.02)
 
@@ -190,7 +190,8 @@ def check_button():
         screen_init()
         backlight.value = not backlight.value
         twist.set_count(0)
-        twist.set_limit(100)
+        twist.set_limit(99)
+        twist.set_color(0, 0, 0)
         screen_init()
     return True
 
@@ -226,7 +227,7 @@ while True:
                     playsound(wc_e_sound)
                     twist.set_color(*emergency_color)
                     camera = PiCamera()                        
-                    camera.capture('/home/pi/final_emergency/image'+time.strftime("%m-%d-%y %H %M %S")+'.jpg')
+                    camera.capture('emergency/'+time.strftime("%m-%d-%y %H %M %S")+'.jpg')
                 else:
                     playsound(wc_sound)
                 token_process()
