@@ -142,12 +142,14 @@ def listen_return():
 
 
 def animation():
+    chars = "CORNELL TECH"
     for i in range(10):
         draw.rectangle((0, 0, width, height), outline=0, fill=(0, 0, 0, i*25))
         disp.image(image, rotation)
     for i in range(21):
-        blend_image = Image.blend(logo_2, logo_4, i / 20)        
-        image.paste(blend_image, (85, 30, 155, 100))
+        blend_image = Image.blend(logo_2, logo_4, i / 20)
+        image.paste(blend_image, (30, 30, 100, 100))
+        draw.text((120, 30), chars[:min(i, len(chars))], font=font, fill="#B22222")
         disp.image(image, rotation)
         time.sleep(0.02)
 
@@ -159,17 +161,17 @@ def token_process():
     tk = Tokens(keypad, PWDM.emergency_mode)
     animation()
     draw.rectangle((0, 0, width, height), outline=0, fill=(0, 0, 0))
-    draw.text((0.5, 10), "You have ", font=font, fill="#FFFFFF")
+    draw.text((0.5, 10), "YOU HAVE ", font=font, fill="#FFFFFF")
     draw.text((50, 50), str(len(tk.tokens)), font=font_big, fill="#FFFFFF")
-    draw.text((90, 60), " tokens", font=font, fill="#FFFFFF")
+    draw.text((90, 60), " TOKENS", font=font, fill="#98FB98")
     draw.text((0.5, 90), "Input a number end with # to view", font=font, fill="#FFFFFF")
     disp.image(image, rotation)
     playsound(token_num)
     while check_button() and backlight.value:
         draw.rectangle((0, 0, width, height), outline=0, fill=(0, 0, 0))
-        draw.text((0.5, 10), "You have ", font=font, fill="#FFFFFF")
+        draw.text((0.5, 10), "YOU HAVE ", font=font, fill="#FFFFFF")
         draw.text((50, 50), str(len(tk.tokens)), font=font_big, fill="#FFFFFF")
-        draw.text((90, 60), " tokens", font=font, fill="#FFFFFF")
+        draw.text((90, 60), " TOKENS", font=font, fill="#98FB98")
         draw.text((0.5, 90), "Input a number end with # to view", font=font, fill="#FFFFFF")
         disp.image(image, rotation)
         if tk.get_token():
@@ -233,7 +235,7 @@ while True:
             if PWDM.count_down:
                 while PWDM.count_down_times > 0:
                     draw.rectangle((0, 0, width, height), outline=0, fill=(0, 0, 0))
-                    draw.text((0.5, 10), "Safe locked due to", font=font, fill="#FFFFFF")
+                    draw.text((0.5, 10), "Safe LOCKED due to", font=font, fill="#FFFFFF")
                     draw.text((0.5, 50), "too many wrong inputs", font=font, fill="#FFFFFF")
                     draw.text((70, 90), str(PWDM.count_down_times)+" S", font=font_big, fill="#FFFFFF")
                     disp.image(image, rotation)
