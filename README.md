@@ -13,7 +13,7 @@ Users can secure their tokens with password that will be a combination of Qwiic 
 
 The user can set the password with the combination of a number from 0-99 (input from Qwiic Twist) and a PIN with an arbitrary number of digits (in our shown example, it's 4-digit). 
 
-For our current setting, the normal password is 15 + 3428 and the emergency password is 88 + 9716.
+For our current setting, the normal password is 15 + 3428 and the protection password is 88 + 9716.
 
 If the user enters the password wrong for three times in a row, the safe will be locked in 10 seconds. Countdown will be displayed on the screen.
 
@@ -26,7 +26,7 @@ Opening Screen: "Enter the password to open the safe", number from 0-99 that wil
 
 Welcome and Goodbye Animation: A Cornell Tech logo (the twisted "T") will gradually change the color on the screen while the text "CORNELL TECH" will appear character by character.
 
-Main Page in Safe: "You have", number of the tokens the user has in the safe (different during emergency mode) in big font size, "tokens"; "Enter a number ends with # to view"
+Main Page in Safe: "You have", number of the tokens the user has in the safe (different during protection mode) in big font size, "tokens"; "Enter a number ends with # to view"
 
 Viewing Token: The token is a 64-digit string and will be displayed in four rows with each row displaying 16 digits.
 
@@ -44,7 +44,7 @@ Enter the password wrong three times: *"That isn't science." (GLaDOS)*
 
 Open the safe (after correct password): *"Oh...it's you." (GLaDOS)*
 
-Open the safe in emergency mode: *"Hello, friend." (Turret)*
+Open the safe in protection mode: *"Hello, friend." (Turret)*
 
 Main page: *"Oh! That thing has numbers on it." (Turret)*
 
@@ -58,14 +58,14 @@ Shutdown the safe: *"It's been fun. Don't come back." (GLaDOS)*
 When the user is viewing a token, he/she can say "return" to let the safe device return to the main page. 
 
 
-#### Emergency Mode
+#### Protection Mode
 
-The safe has a special setting that when a user is being threatened, he/she can enter a different combination of the password that can also open the safe but will activate emergency mode. 
+The safe has a special setting that when a user is being threatened, he/she can enter a different combination of the password that can also open the safe but will activate protection mode. 
 
-In the emergency mode:
+In the protection mode:
 
-- The safe will output a green light on Qwiic Twist to let the user know that emergency mode has been activated
-- The camera will automatically turn on recording and use the "emergency" folder to store the captured media with the recording date and time in the filename.
+- The safe will output a green light on Qwiic Twist to let the user know that protection mode has been activated
+- The camera will automatically turn on recording and use the "protection" folder to store the captured media with the recording date and time in the filename.
 - The safe will say a different welcome message for opening the safe, as shown above in the Sound section.
 - Tokens that are marked with "E" (expensive) in the JSON storage will be hidden.
 
